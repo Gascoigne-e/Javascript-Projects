@@ -4,6 +4,7 @@ for(var i = 0; i < document.querySelectorAll(".drum").length; i++){
         var buttonInnerHtml = this.innerHTML;
         console.log("Button clicked: " + buttonInnerHtml); // Debugging log
         makesound(buttonInnerHtml);
+        buttonanimation(buttonInnerHtml);
     });
 }
 
@@ -11,6 +12,7 @@ for(var i = 0; i < document.querySelectorAll(".drum").length; i++){
 document.addEventListener('keydown', function (event) {
     console.log("Key pressed: " + event.key); // Debugging log
     makesound(event.key); 
+    buttonanimation(event.key);
 });
 
 function makesound(key) {
@@ -48,4 +50,15 @@ function makesound(key) {
             console.log("Unrecognized key: " + key); // Debugging log
             break;
     }
+} 
+
+
+function buttonanimation(currentkey){
+    var activebutton = document.querySelector("." + currentkey);
+    activebutton.classList.add("pressed");
+
+    setTimeout(function() {
+        activebutton.classList.remove("pressed");
+
+    }, 100);
 }
