@@ -6,7 +6,7 @@ var started = false;
 
 var level=0;
 
-
+//section for key press
 $(document).keydown( function (a) {
    
       if(!started){
@@ -29,6 +29,8 @@ $(".btn").on("click" , function () {
    }
 );
 
+
+//function for checking the answer of the user
 function checkAnswer(currentLevel){
    if(userClickedPattern[currentLevel] === gamePattern[currentLevel]){
       console.log("success");
@@ -49,6 +51,8 @@ function checkAnswer(currentLevel){
       
 }
 
+
+//function for 
 function gameOver(){
    
    $("body").addClass("game-over");
